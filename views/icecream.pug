@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  h1= title 
+  - var results = [{"icecreamName": "Death By Chocolate", "icecreamFlavour": "Vanila", "icecreamPrice": 100}, {"icecreamName": "Red Velvet", "icecreamFlavour": "Butterscotch", "icecreamPrice": 200}, {"icecreamName": "Butter Pecan", "icecreamFlavour": "Chocolate", "icecreamPrice": 300}]
+    div(class = 'container-fluid')
+      div(class = 'row')
+        each item,index in results 
+          div(class="col-md-2", onClick=`buy(${index})`) icecreamName : #{item["icecreamName"]} <br> icecreamFlavour : #{item["icecreamFlavour"]} <br> icecreamPrice: #{item["icecreamPrice"]}
+           script.
+            function buy(val) {
+              alert(`You purchased item ${val}`)
+            }
