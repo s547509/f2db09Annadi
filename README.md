@@ -1,6 +1,2 @@
-# f2wb09Annadi
+# f2db09Annadi
 https://f2wb09annadi.onrender.com
-
-Class : Icecream
-
-Attributes : IcecreamName(String), IcecramFlovour(String)t, IcecreamPrice(number)
