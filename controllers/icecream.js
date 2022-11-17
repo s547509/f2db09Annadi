@@ -1,15 +1,15 @@
 var icecream = require('../models/icecream'); 
  
-// List of all icecreams 
+// List of all icecream 
 exports.icecream_list = function(req, res) { 
     res.send('NOT IMPLEMENTED: icecream list'); 
 }; 
 
-// List of all icecreams 
+// List of all icecream 
 exports.icecream_list = async function(req, res) { 
     try{ 
-        theicecreams = await icecream.find(); 
-        res.send(theicecreams); 
+        theicecream = await icecream.find(); 
+        res.send(theicecream); 
     } 
     catch(err){ 
         res.status(500); 
@@ -32,11 +32,11 @@ exports.icecream_detail = async function(req, res) {
         res.send(`{"error": document for id ${req.params.id} not found`); 
     } 
 }; 
-// List of all icecreams 
+// List of all icecream 
 exports.icecream_detail = async function(req, res) { 
     try{ 
-        theicecreams = await icecream.find(); 
-        res.send(theicecreams); 
+        theicecream = await icecream.find(); 
+        res.send(theicecream); 
     } 
     catch(err){ 
         res.status(500); 
@@ -49,11 +49,11 @@ exports.icecream_create_post = function(req, res) {
     res.send('NOT IMPLEMENTED: icecream create POST'); 
 }; 
  
-// List of all icecreams 
+// List of all icecream 
 exports.icecream_create_post = async function(req, res) { 
     try{ 
-        theicecreams = await icecream.find(); 
-        res.send(theicecreams); 
+        theicecream = await icecream.find(); 
+        res.send(theicecream); 
     } 
     catch(err){ 
         res.status(500); 
@@ -78,11 +78,11 @@ exports.icecream_delete = async function(req, res) {
     } 
 }; 
  
-// List of all icecreams 
+// List of all icecream  
 // exports.icecream_delete = async function(req, res) { 
 //     try{ 
-//         theicecreams = await icecream.find(); 
-//         res.send(theicecreams); 
+//         theicecream = await icecream.find(); 
+//         res.send(theicecream); 
 //     } 
 //     catch(err){ 
 //         res.status(500); 
@@ -99,11 +99,11 @@ exports.icecream_delete = async function(req, res) {
 //     res.send('NOT IMPLEMENTED: icecream update PUT' + req.params.id); 
 // }; 
 
-// List of all icecreams 
+// List of all icecream 
 // exports.icecream_update_put = async function(req, res) { 
 //     try{ 
-//         theicecreams = await icecream.find(); 
-//         res.send(theicecreams); 
+//         theicecream = await icecream.find(); 
+//         res.send(theicecream); 
 //     } 
 //     catch(err){ 
 //         res.status(500); 
@@ -187,8 +187,8 @@ exports.icecream_view_one_Page = async function(req, res) {
 // Handle a show all view 
 exports.icecream_view_all_Page = async function(req, res) { 
     try{ 
-        theicecreams = await icecream.find(); 
-        res.render('icecreams', { title: 'icecream Search Results', results: theicecreams }); 
+        theicecream = await icecream.find(); 
+        res.render('icecream', { title: 'icecream Search Results', results: theicecream }); 
     } 
     catch(err){ 
         res.status(500); 

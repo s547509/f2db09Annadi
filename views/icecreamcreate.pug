@@ -3,17 +3,27 @@ extends layout
 block content 
   h1= title 
   
-  form(id='icecreamForm', action="/resource/icecreams", method="POST") 
-    div.form-group 
-        label.icecreamAttr(for='icecreamName') icecream icecreamName
-        input#icecreamName(type='text', name='icecreamName') 
-    div.form-group 
-        label.icecreamAttr(for='icecreamF') icecream icecreamF 
-        input#icecreamF(type='text', name='icecreamF') 
-    div.form-group 
-        label.icecreamAttr(for='icecreamPrice') icecream icecreamPrice 
-        input#icecreamPrice(type='number', name='icecreamPrice') 
-    input(type="submit") 
+  div(class='container', style='border: 2px solid #2192FF; width: 450px;')
+    h1(style="text-align: center; color: #FF1E1E")= title 
+    br
+    div(class='container' style="text-align: center; width: 450px;")
+      form(id='dishForm', action="/resource/icecream", method="POST") 
+        div.form-group 
+          div(class="form-group row mb-2") 
+            label.icecreamAttr(for='icecreamName', class='col-4 col-from-label') icecream Name 
+            div(class='col-6' style='width: 250px;')
+              input#icecreamName(class='form-control form-control-sm', type='text', name='icecreamName') 
+        div.form-group 
+          div(class="form-group row mb-2") 
+            label.icecreamAttr(for='icecreamF', class='col-4 col-from-label') icecream Flavor
+            div(class='col-6' style='width: 250px;')
+              input#icecreamF(class='form-control form-control-sm', type='text', name='icecreamF', step='any') 
+        div.form-group
+          div(class="form-group row mb-2")  
+            label.icecreamAttr(for='icecreamPrice', class='col-4 col-from-label') icecream Price
+            div(class='col-6' style='width: 250px;')
+              input#icecreamPrice(class='form-control form-control-sm',  type='number', name='icecreamPrice') 
+        input(class='btn btn-outline-success' type="submit" style='width: 150px; margin: 6px;')
     
  
   script. 

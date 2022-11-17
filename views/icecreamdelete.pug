@@ -1,39 +1,42 @@
 extends layout 
  
-block content 
-  h1= title 
- 
-  if (toShow == null) 
-    h2 No instance to delete 
-  else 
-    - let icecreamid = toShow._id 
-    - let icecreamName= toShow.icecreamName
-    - let icecreamicecreamF = toShow.icecreamF 
-    - let icecreamicecreamPrice = toShow.icecreamPrice 
-    - let actionid = "/resource/icecreams/" + icecreamid 
-    script let actionid = "#{actionid}" 
-    div 
-      div.row 
-        div(class='icecreamAttr mr-3') icecream ID is: 
-        div #{icecreamid} 
-      div.row 
-        div(class='icecreamAttr mr-3') icecream icecreamName is: 
-        div #{icecreamName} 
-      div.row 
-        div(class='icecreamAttr mr-3') icecream icecreamF is: 
-        div #{icecreamicecreamF} 
-      div.row 
-        div(class='icecreamAttr mr-3') icecream icecreamPrice is: 
-        div #{icecreamicecreamPrice} 
- 
-    button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
-    button(class="btn btn-secondary m-2" onclick="cancel()") Cancel 
- 
+block content  
+  div(class="container", style='border: 2px solid #001253; width: 450px;')
+    h1(style="text-align: center; color: #432C7A")= title 
+    br
+
+    if (toShow == null) 
+        h2 No instance to delete 
+    else 
+        - let icecreamid = toShow._id 
+        - let icecreamName = toShow.icecreamName
+        - let icecreamF = toShow.icecreamF 
+        - let icecreamPrice = toShow.icecreamPrice 
+        - let actionid = "/resource/icecream/" + icecreamid
+        script let actionid = "#{actionid}" 
+        div(class='container' style="text-align: center; width: 450px;")
+            div(class='row mb-3') 
+                div(class='icecreamAttr col-4') icecream Id
+                div(class='data col-6') #{icecreamid} 
+            div(class='row mb-3') 
+                div(class='icecreamAttr col-4') icecream Name 
+                div(class='data col-6') #{icecreamName} 
+            div(class='row mb-3') 
+                div(class='icecreamAttr col-4') icecream Flavor
+                div(class='data col-6') #{icecreamF} 
+            div(class='row mb-3') 
+                div(class='icecreamAttr col-4') icecream Price
+                div(class='data col-6') #{icecreamPrice} 
+
+            button(class="btn btn-danger m-2" onclick="deleteOnid()") Delete 
+            button(class="btn btn-secondary m-2" onclick="cancel()") Cancel
+            
   script. 
     function cancel() { 
       // Go back to the home page for the icecream collection 
-      window.location.href='/icecreams' 
-    } 
+      window.location.href='/icecream'
+        } 
+
   script. 
     function deleteOnid() { 
       console.log("starting delete") 
@@ -44,7 +47,7 @@ block content
         return resp.json(); // or resp.text() or whatever the server sends 
       }).then((body) => { 
         alert("Delete succeded") 
-        window.location.href='/icecreams' 
+        window.location.href='/icecream' 
         // TODO handle body 
       }).catch((error) => { 
         // TODO handle error 

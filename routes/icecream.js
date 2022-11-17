@@ -17,7 +17,7 @@ router.get('/update', icecream_controlers.icecream_update_Page);
 /* GET delete costume page */ 
 router.get('/delete', icecream_controlers.icecream_delete_Page); 
 // GET request for one icecream. 
-router.get('/icecreams/:id', icecream_controlers.icecream_detail); 
+router.get('/icecream/:id', icecream_controlers.icecream_detail); 
 module.exports = router;
  
 

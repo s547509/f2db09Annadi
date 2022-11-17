@@ -2,21 +2,24 @@ extends layout
  
 block content 
   h1= title 
- 
-  - let icecreamid = toShow._id 
-  - let icecreamName = toShow.icecreamName 
-  - let icecreamF = toShow.icecreamF
-  - let icecreamPrice = toShow.icecreamPrice
-  div 
-    div.row 
-      div(class='icecreamAttr mr-3') icecream ID is: 
-      div #{icecreamid} 
-    div.row 
-      div(class='icecreamAttr mr-3') icecream icecreamName is: 
-      div #{icecreamName} 
-    div.row 
-      div(class='icecreamAttr mr-3') icecream icecreamF is: 
-      div #{icecreamF} 
-    div.row 
-      div(class='icecreamAttr mr-3') icecream icecreamPrice is: 
-      div #{icecreamPrice} 
+  div(class='container', style='border: 2px solid #001253; width: 450px;')
+    h1(style="text-align: center; color: #54B435")= title 
+    br
+    - let icecreamid = toShow._id 
+    - let icecreamName = toShow.icecreamName 
+    - let icecreamF = toShow.icecreamF
+    - let icecreamPrice = toShow.icecreamPrice 
+
+    div(class='container' style="text-align: center; width: 500px;")
+      div(class='row mb-3')
+        div(class='col-3' style='color: #5F9DF7; font-weight: bold;') icecream ID 
+        div(class='icecreamAttr detailData col-6' style='color: white;') #{icecreamid} 
+      div(class='row mb-3')
+        div(class='col-3' style='color: #5F9DF7; font-weight: bold;') icecream Name
+        div(class='icecreamAttr detailData col-6' style='color: white;') #{icecreamName} 
+      div(class='row mb-3') 
+        div(class='col-3' style='color: #5F9DF7; font-weight: bold;') icecream Flavor 
+        div(class='icecreamAttr detailData col-6' style='color: white;') #{icecreamF} 
+      div(class='row mb-3')
+        div(class='col-3' style='color: #5F9DF7; font-weight: bold;') icecream Price
+        div(class='icecreamAttr detailData col-6' style='color: white;') #{icecreamPrice}

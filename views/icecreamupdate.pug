@@ -3,26 +3,33 @@ extends layout
 block content 
   h1= title 
  
-  - let icecreamid = toShow._id 
-  - let icecreamName = toShow.icecreamName 
-  - let icecreamF = toShow.icecreamF
-  - let icecreamPrice = toShow.icecreamPrice
-   
-  div.row(class='mb-2') 
-    div.mr-1 ID is 
-    div #{icecreamid} 
-  - let actionid = "/resource/icecreams/" + icecreamid 
-  form(id='icecreamForm', action= actionid, method="PUT") 
-    div.form-group 
-        label.icecreamAttr(for='icecreamName') icecream icecreamName 
-        input#icecreamName(type='text', name='icecreamName', value= icecreamName ) 
-    div.form-group 
-        label.icecreamAttr(for='icecreamF') icecream icecreamF
-        input#icecreamF(type='text', name='icecreamF', value= icecreamF ) 
-    div.form-group 
-        label.icecreamAttr(for='icecreamPrice') icecream icecreamPrice 
-        input#icecreamPrice(type='number', name='icecreamPrice', value= icecreamPrice) 
-    input(type="submit") 
+  div.container(style='border: 2px solid #001253; width: 450px;')
+    h1(style="text-align: center; color: red;")= title 
+    br
+    - let icecreamid = toShow._id 
+    - let icecreamName = toShow.icecreamName 
+    - let icecreamF = toShow.icecreamF
+    - let icecreamPrice = toShow.icecreamPrice 
+
+    div(class='container' style="text-align: center; width: 450px;")
+      div.row(class='mb-2') 
+        div(class='icecreamAttr col-4') ID is 
+        div(class='data col-6') #{icecreamid} 
+      - let actionid = "/resource/icecream/" + icecreamid
+      form(id='icecreamForm', action=actionid, method="PUT") 
+        div(class="form-group row mb-2") 
+            label.icecreamAttr(for='icecreamName', class='col-4 col-from-label') icecream Name 
+            div(class='col-6' style='width: 250px;')
+              input#icecreamName(class='form-control', type='text', name='icecreamName', value=`${icecreamName}`) 
+        div(class="form-group row mb-2") 
+            label.icecreamAttr(for='icecreamF', class='col-4 col-from-label') icecream Flavor
+            div(class='col-6' style='width: 250px;') 
+              input#icecreamF(class='form-control', type='text', name='icecreamF', step='any', value=`${icecreamF}`) 
+        div(class="form-group row mb-2") 
+            label.icecreamAttr(for='icecreamPrice', class='col-4 col-from-label') icecream Price
+            div(class='col-6' style='width: 250px;')
+              input#icecreamPrice(class='form-control' type='number', name='icecreamPrice', value=`${icecreamPrice}`) 
+        input(class='btn btn-success' type="submit" style='width: 150px; margin: 6px;') 
  
   script. 
     document.forms['icecreamForm'].addEventListener('submit', (event) => { 
@@ -30,7 +37,7 @@ block content
       // TODO do something here to show user that form is being submitted 
       fetch(event.target.action, { 
         method: 'PUT', 
-        body: new URLSearchParams(new FormData(event.target)) // event.target is the form 
+        body: new URLSearchParams(new FormData(event.target)) 
       }).then((resp) => { 
         return resp.json(); // or resp.text() or whatever the server sends 
       }).then((body) => { 
