@@ -37,14 +37,6 @@ passport.serializeUser(Account.serializeUser());
 passport.deserializeUser(Account.deserializeUser()); 
 var selectorRouter = require('./routes/selector');
 
-app.use(require('express-session')({ 
-  secret: 'keyboard cat', 
-  resave: false, 
-  saveUninitialized: false 
-})); 
-app.use(passport.initialize()); 
-app.use(passport.session());
-
 var icecream = require("./models/icecream");
 var app = express();
 
@@ -63,6 +55,15 @@ app.use('/users', usersRouter);
 app.use('/gridbuild', gridbuildRouter);
 app.use('/icecream', icecreamRouter);
 app.use('/selector', selectorRouter);
+
+app.use(require('express-session')({ 
+  secret: 'keyboard cat', 
+  resave: false, 
+  saveUninitialized: false 
+})); 
+app.use(passport.initialize()); 
+app.use(passport.session()); 
+ 
 
 app.use('/resource', resourceRouter);
 // We can seed the collection if needed on server start
