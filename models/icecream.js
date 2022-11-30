@@ -1,7 +1,17 @@
 const mongoose = require("mongoose")
 const icecreamSchema = mongoose.Schema({
-    icecreamName: String,
-    icecreamF: String,
-    icecreamPrice: Number
+    icecreamName: {
+        type:String,
+        required:true,
+    },
+    icecreamF: {
+        type:String,
+        required:true,
+    },
+    icecreamPrice:{
+        type: Number,
+        required:true,
+        min:1,
+        max:2000},
 })
 module.exports = mongoose.model("icecream",icecreamSchema)
